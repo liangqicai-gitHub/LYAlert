@@ -1,9 +1,9 @@
 {
   "name": "LYAlert",
-  "version": "0.1.0",
-  "summary": "A short description of LYAlert.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Sunny/LYAlert",
+  "version": "0.1.1",
+  "summary": "use for alter",
+  "description": "when you want to do alter, it can be some help",
+  "homepage": "https://github.com/liangqicai-gitHub/LYAlert",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,23 @@
     "Sunny": "2468751795@qq.com"
   },
   "source": {
-    "git": "https://github.com/Sunny/LYAlert.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/liangqicai-gitHub/LYAlert.git",
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "LYAlert/Classes/**/*"
+  "source_files": "LYAlert/Classes/**/*",
+  "swift_versions": [
+    5.0
+  ],
+  "dependencies": {
+    "RxSwift": [
+      "6.5.0"
+    ],
+    "RxCocoa": [
+      "6.5.0"
+    ]
+  },
+  "swift_version": "5.0"
 }

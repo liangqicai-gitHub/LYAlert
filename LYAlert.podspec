@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LYAlert'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'use for alter'
 
 
@@ -27,6 +27,9 @@ when you want to do alter, it can be some help
 
   s.source_files = 'LYAlert/Classes/**/*'
   s.swift_versions = [5.0]
+
+  s.dependency 'RxSwift', '6.5.0'
+  s.dependency 'RxCocoa', '6.5.0'
 
   # s.resource_bundles = {
   #   'LYAlert' => ['LYAlert/Assets/*.png']

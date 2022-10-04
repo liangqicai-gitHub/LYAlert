@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import RxSwift
 
-class LYCenterContentAltert: LYBaseAltert {
+
+class LYCenterContentAlert: LYBaseAlert {
     
     var ly_content: UIView? {
         didSet {
@@ -45,30 +45,14 @@ class LYCenterContentAltert: LYBaseAltert {
 
     
     
-    
-    private var ly_dismissDispo: Disposable?
-    public weak var ly_dismissControl: UIControl? {
-        didSet {
-            ly_dismissDispo?.dispose()
-            ly_dismissDispo = ly_dismissControl?.rx
-                .controlEvent(.touchUpInside)
-                .take(until: rx.deallocated)
-                .subscribe(onNext: { [weak self] (_) in
-                    self?.ly_dismiss()
-                })
-        }
-    }
-    
-    deinit {
-        ly_dismissDispo?.dispose()
-    }
+
 }
 
 
 
 extension LYAlterContainer {
     
-    public func ly_altertCenter(
+    public func ly_alertCenter(
         contentView: UIView,
         dismissControl: UIControl? = nil,
         isTapBlankToDismiss: Bool = true,
@@ -78,6 +62,6 @@ extension LYAlterContainer {
             alter.ly_dismissControl = dismissControl
             alter.ly_isNeedTapBlankToDismiss = isTapBlankToDismiss
             alter.ly_isQueueControl = isQueueControl
-            ly_altert(altert: alter)
+            ly_alert(alter: alter)
     }
 }

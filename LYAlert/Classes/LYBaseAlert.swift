@@ -6,7 +6,10 @@
 //
 
 
-public class LYBaseAltert: UIView {
+import RxSwift
+import RxCocoa
+
+public class LYBaseAlert: UIView {
     
     public final var ly_isQueueControl = true
         
@@ -70,10 +73,24 @@ public class LYBaseAltert: UIView {
             ly_tapToDismissGes.isEnabled = ly_isNeedTapBlankToDismiss
         }
     }
+    
+    
+    private var ly_dismissControlDispo: Disposable?
+    public weak var ly_dismissControl: UIControl? {
+        didSet {
+            ly_dismissControlDispo?.dispose()
+            ly_dismissControlDispo = ly_dismissControl?.rx.tap.take(until: rx.deallocated)
+                .subscribe(onNext: { [weak self] () in
+                    self?.ly_dismiss()
+                })
+        }
+    }
+
+    
 }
 
 
-extension LYBaseAltert: UIGestureRecognizerDelegate {
+extension LYBaseAlert: UIGestureRecognizerDelegate {
 
     //这个方法在 gestureRecognizerShouldBegin 之前调用，如果返回false，那么 gestureRecognizerShouldBegin 就不会调用
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -86,5 +103,6 @@ extension LYBaseAltert: UIGestureRecognizerDelegate {
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return false
     }
-    
 }
+
+

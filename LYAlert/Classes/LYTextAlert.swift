@@ -6,7 +6,7 @@
 //
 
 
-public class LYTextAltert: LYBaseAltert {
+public class LYTextAlert: LYBaseAlert {
     
     public let ly_content: UILabel = {
         let rs = UILabel()
@@ -53,7 +53,7 @@ public class LYTextAltert: LYBaseAltert {
 
 
 extension LYAlterContainer {
-    public func ly_altertText(
+    public func ly_alertText(
         text: String?,
         font: UIFont = UIFont.systemFont(ofSize: 14),
         color: UIColor = .white,
@@ -66,7 +66,7 @@ extension LYAlterContainer {
             alter.ly_content.font = font
             alter.ly_content.textColor = color
             alter.ly_isQueueControl = isQueueControl
-            ly_altert(altert: alter)
+            ly_alert(alter: alter)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(duration)) {
                 alter.ly_dismiss()
