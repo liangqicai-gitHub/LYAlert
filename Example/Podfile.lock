@@ -1,0 +1,16 @@
+PODS:
+  - LYAlert (0.1.0)
+
+DEPENDENCIES:
+  - LYAlert (from `../`)
+
+EXTERNAL SOURCES:
+  LYAlert:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LYAlert: e7f2f507eaaea8e50968f026d97bd294c4bad0df
+
+PODFILE CHECKSUM: 7d690183da091f425ccc5c1e3a63ee4647cee517
+
+COCOAPODS: 1.11.3

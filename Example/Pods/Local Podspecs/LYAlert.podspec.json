@@ -1,0 +1,22 @@
+{
+  "name": "LYAlert",
+  "version": "0.1.0",
+  "summary": "A short description of LYAlert.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Sunny/LYAlert",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Sunny": "2468751795@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Sunny/LYAlert.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "LYAlert/Classes/**/*"
+}
