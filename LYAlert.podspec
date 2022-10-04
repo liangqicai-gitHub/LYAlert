@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LYAlert'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'use for alter'
 
 
@@ -26,13 +26,14 @@ when you want to do alter, it can be some help
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'LYAlert/Classes/**/*'
-  
+  s.swift_versions = [5.0]
+
   # s.resource_bundles = {
   #   'LYAlert' => ['LYAlert/Assets/*.png']
   # }
 
-  s.public_header_files = 'Pod/Classes/**/*.h'
-  s.swift_versions = [5.0]
+  #s.public_header_files = 'Pod/Classes/**/*.h'
+  #s.swift_versions = [5.0]
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
