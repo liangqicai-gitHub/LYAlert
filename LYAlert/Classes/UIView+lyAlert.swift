@@ -31,13 +31,13 @@ extension LYAlertContainer {
         else {
             
             let ob = PublishSubject<LYBaseAlert>()
-            let dismissed = ly_altertStateSubject.filter({$0 == .dismissed})
+            let dismissed = ly_alertStateSubject.filter({$0 == .dismissed})
             _ = Observable.zip(dismissed, ob)
                 .map({$1})
                 .take(until: rx.deallocated)
                 .observe(on: MainScheduler.asyncInstance)
-                .subscribe(onNext: { [weak self] (altert) in
-                    self?.ly_alterRealShow(altert: altert)
+                .subscribe(onNext: { [weak self] (alert) in
+                    self?.ly_alertRealShow(alert: alert)
                 })
             
             objc_setAssociatedObject(self, &LYAlertContainerKey.appendNewToastSubject, ob, .OBJC_ASSOCIATION_RETAIN)
@@ -60,15 +60,15 @@ extension LYAlertContainer {
     
     
     public func ly_alert(alert: LYBaseAlert) {
-        if altert.ly_isQueueControl {
-            ly_altertAddedSubject.onNext(alert)
+        if alert.ly_isQueueControl {
+            ly_alertAddedSubject.onNext(alert)
         } else {
-            ly_alterRealShow(altert: alert)
+            ly_alertRealShow(alert: alert)
         }
         
     }
     
-    private func ly_alterRealShow(alert: LYBaseAlert) {
+    private func ly_alertRealShow(alert: LYBaseAlert) {
         alert.ly_show(in: self)
     }
     

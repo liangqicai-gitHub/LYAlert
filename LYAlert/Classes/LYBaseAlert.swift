@@ -17,7 +17,7 @@ public class LYBaseAlert: UIView {
         removeFromSuperview()
         container.addSubview(self)
         if ly_isQueueControl {
-            container.ly_altertStateSubject.onNext(.alterting)
+            container.ly_alertStateSubject.onNext(.alerting)
         }
         ly_customerShow()
     }
@@ -26,7 +26,7 @@ public class LYBaseAlert: UIView {
         ly_customerDismiss { [weak self] () in
             guard let sself = self else { return }
             if sself.ly_isQueueControl {
-                sself.superview?.ly_altertStateSubject.onNext(.dismissed)
+                sself.superview?.ly_alertStateSubject.onNext(.dismissed)
             }
             sself.removeFromSuperview()
         }
@@ -52,9 +52,7 @@ public class LYBaseAlert: UIView {
     
     //MARK:-
     private lazy var ly_tapToDismissGes: UITapGestureRecognizer = {
-        let ges = UITapGestureRecognizer { [weak self] (_) in
-            self?.ly_dismiss()
-        }
+        let ges = UITapGestureRecognizer(target: self, action: #selector(self.ly_tapToDismissAction(_:)))
         ges.delegate = self
         //因为subview上的touch事件需要被触发，
         //比如subview上是一个tableview，tableview上有didSelecteCell事件，那么就需要设置为 false
@@ -79,7 +77,7 @@ public class LYBaseAlert: UIView {
     public weak var ly_dismissControl: UIControl? {
         didSet {
             ly_dismissControlDispo?.dispose()
-            ly_dismissControlDispo = ly_dismissControl?.rx.tap.take(until: rx.deallocated)
+            ly_dismissControlDispo = ly_dismissControl?.rx.controlEvent(.touchUpInside).take(until: rx.deallocated)
                 .subscribe(onNext: { [weak self] () in
                     self?.ly_dismiss()
                 })
@@ -102,6 +100,10 @@ extension LYBaseAlert: UIGestureRecognizerDelegate {
     //两个tap都添加的情况下，都没有代理的情况下，苹果会响应最后一个添加的。。。
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return false
+    }
+    
+    @objc func ly_tapToDismissAction(_ gestureRecognizer: UIGestureRecognizer) {
+        ly_dismiss()
     }
 }
 

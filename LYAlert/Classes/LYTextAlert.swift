@@ -19,7 +19,7 @@ public class LYTextAlert: LYBaseAlert {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         ly_isQueueControl = false
-        ly_cornerRadius = 5
+        layer.cornerRadius = 5
         backgroundColor = .black
         addSubview(ly_content)
         ly_content.snp.makeConstraints { make in
@@ -52,7 +52,7 @@ public class LYTextAlert: LYBaseAlert {
 }
 
 
-extension LYAlterContainer {
+extension LYAlertContainer {
     public func ly_alertText(
         text: String?,
         font: UIFont = UIFont.systemFont(ofSize: 14),
@@ -61,12 +61,12 @@ extension LYAlterContainer {
         duration: Int = 5) {
             guard let text = text, text.count > 0 else { return }
             
-            let alter = LYTextAltert()
+            let alter = LYTextAlert()
             alter.ly_content.text = text
             alter.ly_content.font = font
             alter.ly_content.textColor = color
             alter.ly_isQueueControl = isQueueControl
-            ly_alert(alter: alter)
+            ly_alert(alert: alter)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(duration)) {
                 alter.ly_dismiss()

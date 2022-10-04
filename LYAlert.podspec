@@ -30,6 +30,7 @@ when you want to do alter, it can be some help
 
   s.dependency 'RxSwift', '6.5.0'
   s.dependency 'RxCocoa', '6.5.0'
+  s.dependency 'SnapKit', '5.6.0'
 
   # s.resource_bundles = {
   #   'LYAlert' => ['LYAlert/Assets/*.png']

@@ -1,13 +1,15 @@
 PODS:
-  - LYAlert (0.1.1):
+  - LYAlert (0.1.2):
     - RxCocoa (= 6.5.0)
     - RxSwift (= 6.5.0)
+    - SnapKit (= 5.6.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - LYAlert (from `../`)
@@ -17,16 +19,18 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SnapKit
 
 EXTERNAL SOURCES:
   LYAlert:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LYAlert: 94a985e48583c82c9c7726984797a88bb0d8a313
+  LYAlert: d51ab5c30d8446034a340a20126793332eba76bf
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
 PODFILE CHECKSUM: 7d690183da091f425ccc5c1e3a63ee4647cee517
 

@@ -1,6 +1,6 @@
 {
   "name": "LYAlert",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "use for alter",
   "description": "when you want to do alter, it can be some help",
   "homepage": "https://github.com/liangqicai-gitHub/LYAlert",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/liangqicai-gitHub/LYAlert.git",
-    "tag": "0.1.1"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "10.0"
@@ -28,6 +28,9 @@
     ],
     "RxCocoa": [
       "6.5.0"
+    ],
+    "SnapKit": [
+      "5.6.0"
     ]
   },
   "swift_version": "5.0"

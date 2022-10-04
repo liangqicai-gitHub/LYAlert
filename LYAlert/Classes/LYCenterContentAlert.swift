@@ -50,18 +50,18 @@ class LYCenterContentAlert: LYBaseAlert {
 
 
 
-extension LYAlterContainer {
+extension LYAlertContainer {
     
     public func ly_alertCenter(
         contentView: UIView,
         dismissControl: UIControl? = nil,
         isTapBlankToDismiss: Bool = true,
         isQueueControl: Bool = true) {
-            let alter = LYCenterContentAltert()
+            let alter = LYCenterContentAlert()
             alter.ly_content = contentView
             alter.ly_dismissControl = dismissControl
             alter.ly_isNeedTapBlankToDismiss = isTapBlankToDismiss
             alter.ly_isQueueControl = isQueueControl
-            ly_alert(alter: alter)
+            ly_alert(alert: alter)
     }
 }
